@@ -8,9 +8,9 @@ BCMS provides a Webservice API that lets us retrieve all entries from all catego
 Quickly, an overview of how paging typically works with Webservice APIs. When retrieving all data as in this example and in other cases where data volumes could be high, Webservice APIs break data into pages of a given size and require callers to invoke the API repeatedly, passing parameters to specify page numbers, which implies that data is in a consistent order.
 Typically, you call the API to retrieve the first page, which indicates the size of the page and the number of pages. You then call the API again for any pages that you want. This typically uses three parameters that can go by different names:
 
-•	`total`: The total number of records.
-•	`limit`/`pageSize`: The page size.
-•	`offset`/`skip`: The number of records to skip.
+- `total`: The total number of records.
+- `limit`/`pageSize`: The page size.
+- `offset`/`skip`: The number of records to skip.
 
 ## Shell Script
 
@@ -22,7 +22,7 @@ While we’re at it, we can normalize the JSON, simplifying its structure and ab
 
 ## This Script
 
-The shebang line instructs the operating system to use Bash instead of Bourne, which allows use of things like ${1:0} (and advanced globbing, though that’s not relevant here).
+The shebang line instructs the operating system to use Bash instead of Bourne, which allows use of things like `${1:0}` (and advanced filename globbing and other features not relevant here).
 
 The `start` variable contains either the first parameter passed on the command line, or the value 0 if there is no such value.
 
@@ -71,9 +71,9 @@ The `json` variable contains a list of entries from the CMS in a format such as 
 
 In this JSON:
 
-- items array contains the entries.
-- limit specifies the page size.
-- total specifies the total number of entries.
-- offset specifies the number of entries skipped before returning this list, which is zero for the first page, limit for the second page, 2*limit for the third page, and so forth.
+- `items` contains the entries.
+- `limit` specifies the page size.
+- `total` specifies the total number of entries.
+- `offset` specifies the number of entries skipped before returning this list, which is zero for the first page, limit for the second page, 2*limit for the third page, and so forth.
 
 Next, if the script is processing the first page and there are more pages, the script invokes itself once in the background for each remaining page (in parallel), passing an increasing value as the first argument on the command line to determine the number of entries to skip (offset).
