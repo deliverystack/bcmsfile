@@ -74,6 +74,6 @@ In this JSON:
 - `items` contains the entries.
 - `limit` specifies the page size.
 - `total` specifies the total number of entries.
-- `offset` specifies the number of entries skipped before returning this list, which is zero for the first page, limit for the second page, 2*limit for the third page, and so forth.
+- `offset` specifies the number of entries skipped before returning this list, which is zero for the first page, limit for the second page, `2*limit` for the third page, and so forth.
 
 Next, if the script is processing the first page and there are more pages, the script invokes itself once in the background for each remaining page (in parallel), passing an increasing value as the first argument on the command line to determine the number of entries to skip (offset).
