@@ -102,7 +102,7 @@ To this structure:
 
 ``` json
 {
-  "_id": "6726916a6a0878c7ae2da2f9",
+  "id": "6726916a6a0878c7ae2da2f9",
   "createdAt": 1730580842939,
   "updatedAt": 1730580864005,
   "templateId": "6726915f6a0878c7ae2da2f7",
